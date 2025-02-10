@@ -1,0 +1,302 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+body {
+  position: relative;
+}
+
+.list-outer {
+  padding-block: 12px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.623);
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  z-index: -1;
+}
+
+.list-outer.open {
+  z-index: 99;
+  opacity: 1;
+}
+
+.list {
+  width: clamp(10px, 800px, 800px);
+  background-color: #404040;
+  padding-bottom: 10px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li:first-of-type {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.list li {
+  padding: 3px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list li img {
+  max-height: 35px;
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+.list li.disabled img {
+  opacity: .5;
+}
+
+.list li.disabled span:first-of-type {
+  opacity: .5;
+  text-decoration: line-through;
+}
+
+.list li .disable {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 3px 0 3px 6px;
+  cursor: pointer;
+}
+
+.list li.even {
+  background-color: #343434;
+}
+
+.list li.new img{
+  margin-inline: 0 5px;
+}
+
+.list .close {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: -35px;
+  user-select: none;
+  cursor: pointer;
+  height: min-content;
+  line-height: 16px;
+  padding: 8px;
+}
+
+.list .buttons{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-inline: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.list .save , .reset {
+  background-color: #606060;
+  width: fit-content;
+  padding: 8px 24px;
+  font-weight: 500;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.list .add, .list .file{
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #dfdfdf;
+  color: #343434; padding-inline: 5px;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.list .file {
+  margin:5px 5px 5px auto ;
+}
+
+.list .file input{
+  display: none;
+}
+
+main {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+main .choices {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+main .choices .option {
+  flex: 1;
+  background-color: #606060;
+  border-radius: 2px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+main .choices .option .img {
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 4px;
+}
+
+main .choices .option span {
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+main .rankings {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+main .rankings li {
+  padding: 4px;
+  display: flex;
+  gap: 14px;
+  text-transform: capitalize;
+}
+
+main .rankings .rank {
+  display: block;
+  font-weight: 500;
+  width: 30px;
+  padding-right: 4px;
+  text-align: center;
+  border-right: 1px solid #dfdfdf;
+}
+
+main .rankings li.even {
+  background-color: #606060;
+}
+
+main .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+main .buttons .start {
+  background-color: #606060;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 4px;
+  width: 300px;
+  padding-block: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width:768px) {
+  main {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 40px;
+  }
+
+  main .buttons .start {
+    width: clamp(50px, 100%, 600px);
+    font-size: 18px;
+    padding-block: 8px;
+  }
+
+  main .choices .option .img {
+    height: 250px;
+  }
+}
+
+@media (max-width:540px) {
+  #root {
+    padding-inline: 4px;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 34px;
+  }
+
+  main .choices .option .img {
+    height: 200px;
+    margin-bottom: 2px;
+  }
+
+  main .choices .option {
+    padding: 4px;
+  }
+
+  main .buttons .start {
+    padding-block: 6px;
+  }
+
+  main .choices .option span {
+    font-size: 17px;
+  }
+
+  main .choices {
+    gap: 6px;
+  }
+}
+
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+main .settings label, main .settings .edit {
+  background-color: #606060;
+  padding: 12px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: .2s;
+}
+
+main .settings input {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+main .settings label:has(input:checked) {
+  background-color: #404040;
+}
+
+.number {
+  position: fixed;
+  font-size: 14px;
+  font-style: italic;
+  left: 3px;
+  top: 3px;
+}
