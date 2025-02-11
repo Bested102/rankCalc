@@ -89,7 +89,7 @@ function List({ list, original, open, setOpen, setList }) {
             onClick={() => {
               setEdited(original);
               setList(original);
-              localStorage.setItem("list", JSON.stringify(edited));
+              localStorage.setItem("list", JSON.stringify(original));
             }}
           >
             Reset

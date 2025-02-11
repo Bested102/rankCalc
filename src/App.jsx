@@ -271,7 +271,7 @@ function App() {
                       className={(i + rankings.length) % 2 !== 0 ? "even" : ""}
                     >
                       <span className="rank">-</span>
-                      <span className="item">{e}</span>
+                      <span className="item">{e.name}</span>
                     </li>
                   );
                 })
